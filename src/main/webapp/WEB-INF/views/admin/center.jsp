@@ -25,7 +25,7 @@ KindEditor.ready(function(K) {});
 			<div class="col-2">
 				<div class="nav flex-column nav-pills" aria-orientation="vertical">
 					<a class="nav-link active" href="javascript:;" url="/admin/user">用户管理</a>
-					<a class="nav-link" href="javascript:;" url="/admin/articles">文章管理</a> 
+					<a class="nav-link" href="javascript:;" url="/admin/articles">文章/图片管理</a> 
 					<a class="nav-link" href="javascript:;" url="/admin/link/links">友链管理</a> 
 				</div>
 			</div>

@@ -59,6 +59,7 @@ public class ArticleServiceImpl implements ArticleService{
 			article.setUpdated(new Date());
 			/** 新增 **/
 			articleMapper.insert(article);
+			System.err.println("最新文章为"+article.getTitle());
 		}else {
 			/** 修改 **/
 			article.setUpdated(new Date());
@@ -84,8 +85,10 @@ public class ArticleServiceImpl implements ArticleService{
 			a.setChannel_name(channel.getName());
 			CateGory cate = cateGoryMapper.selectById(a.getCategory_id());
 			a.setCategory_name(cate.getName());
+			System.err.println("栏目及分类为:"+cate.getName());
 			User user = userMapper.selectById(a.getUser_id());
 			a.setNickname(user.getNickname());
+//			System.err.println("用户昵称为:"+user.getNickname());
 		});
 		return new PageInfo<>(articleList);
 	}
@@ -138,6 +141,7 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Override
 	public Channel getChannelByChannelId(Integer channelId) {
+		System.out.println("获取文章栏目"+channelId);
 		return channelMapper.selectById(channelId);
 	}
 
@@ -183,7 +187,7 @@ public class ArticleServiceImpl implements ArticleService{
 		PageHelper.startPage(1, pageSize);
 		List<Article> list = articleMapper.gethotselect();
 		for (Article article : list) {
-			System.out.println("查找到的"+article);
+			System.out.println("查找到的热文"+article);
 		}
 		return list;
 	}

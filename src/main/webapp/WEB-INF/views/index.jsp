@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-6">
 				<!-- 轮播图 -->
-				<c:if test="${channelId==null }">
+				<%-- <c:if test="${channelId==null }">
 					<div id="carouselExampleControls" class="carousel slide"
 						data-ride="carousel">
 						<div class="carousel-inner">
@@ -48,13 +48,43 @@
 							role="button" data-slide="prev"> <span
 							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 							class="sr-only">Previous</span>
-						</a> <a class="carousel-control-next" href="#carouselExampleControls"
+						</a> 
+						<a class="carousel-control-next" href="#carouselExampleControls"
 							role="button" data-slide="next"> <span
 							class="carousel-control-next-icon" aria-hidden="true"></span> <span
 							class="sr-only">Next</span>
 						</a>
 					</div>
-				</c:if>
+				</c:if> --%>
+				
+				
+				<!-- 幻灯片 -->
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					  </ol>
+					  <div class="carousel-inner">
+					    <c:forEach items="${slideList }" var="item" varStatus="status">
+								<div class="carousel-item <c:if test="${status.index==0 }">active</c:if>">
+									<a href="${item.url }" target="_blank"><img src="${item.picture }" height="386px;" class="d-block w-100" alt="第一张幻灯片">
+										<div align="middle">${item.title}</div><!-- 获取文章描述 -->
+									</textarea></a>
+								</div>
+							</c:forEach>
+					  </div>
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">上</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">下</span>
+					  </a>
+				</div>
+				
+				
 				<!-- 频道下的文章分类 -->
 					<ul class="nav nav-tabs">
 						<c:if test="${cateList!=null && cateList.size()>0 }">
@@ -85,7 +115,21 @@
 				<jsp:include page="./common/page.jsp"></jsp:include>
 			</div>
 			<!-- 首页右侧 -->
-			<div class="col-3">
+			
+				<div class="right">
+					<div>最新图片</div>
+					<ul class="list-unstyled">
+						<c:forEach items="${newArticleList }" var="item">
+						<li class="media">
+							<a href="/article/detail/${item.id }.html"><img src="${item.picture }"	style="height: 72px; width: 72px;" class="mr-3" alt="..."></a>
+							<div class="media-body">
+								<h5 class="mt-0 mb-1"><a href="/article/detail/${item.id }.html">${item.title }</a></h5>
+							</div></li>
+						</c:forEach>
+					</ul>
+				</div>
+			
+			<%-- <div class="col-3">
 				<div class="right">
 					<div>最新文章</div>
 					<ul class="list-unstyled">
@@ -97,7 +141,9 @@
 							</div></li>
 						</c:forEach>
 					</ul>
-				</div>
+				</div> --%>
+				<div class="col-3">
+		
 				<!-- 点击量大于20成为热点文章 -->
 				<div class="right">
 					<div>热门推荐</div>

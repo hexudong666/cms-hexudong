@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!-- 发图片界面 -->
 <script>
 	var editor1 = null;
 	KindEditor.ready(function(K) {
@@ -27,22 +27,22 @@
 <form id="saveForm">
 	<input type="hidden" id="id" name="id" value="${article.id }">
 	<div class="form-group row">
-		<label for="inputEmail3" class="col-sm-2 col-form-label">图片标题</label>
+		<label for="inputEmail3" class="col-sm-2 col-form-label">文章标题</label>
 		<div class="col-sm-5">
 			<input type="email" class="form-control" id="title" name="title" value="${article.title }">
 		</div>
 	</div>
-	 <div class="form-group row">
-		<label for="inputPassword3" class="col-sm-2 col-form-label">您要展示的缩略图</label>
+	<div class="form-group row">
+		<label for="inputPassword3" class="col-sm-2 col-form-label">文章图片</label>
 		<div class="col-sm-5">
 			<jsp:include page="../common/file.jsp">
 				<jsp:param name="fieldName" value="picture"/>
 				<jsp:param name="fieldValue" value="${article.picture }"/>
 			</jsp:include>
 		</div>
-	</div> 
+	</div>
 	<div class="form-group row">
-		<label for="inputPassword3" class="col-sm-2 col-form-label">频道</label>
+		<label for="inputPassword3" class="col-sm-2 col-form-label">所属频道</label>
 		<div class="col-sm-5">
 			<select class="form-control" id="channel_id" name="channel_id" onchange="changeCate();">
 				<option value="">请选择频道</option>
@@ -59,7 +59,7 @@
 	</div>
 
 	<div class="form-group row">
-		<label for="inputPassword3" class="col-sm-2 col-form-label">分类</label>
+		<label for="inputPassword3" class="col-sm-2 col-form-label">所属分类</label>
 		<div class="col-sm-5">
 			<select class="form-control" id="category_id" name="category_id">
 				<option value="">请选择分类</option>
@@ -75,7 +75,7 @@
 		</div>
 	</div>
 	<div class="form-group row">
-		<div class="col-sm-2">实际的图片</div>
+		<div class="col-sm-2">文章内容</div>
 		<div class="col-sm-10">
 			<div>
 				<textarea name="content1" cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;">${article.content }</textarea>
@@ -115,7 +115,7 @@
 			$(".alert").html("请选择图片");
 			$(".alert").show();
 			return;
-		} 
+		}
 		if(channel_id==null || channel_id==""){
 			$(".alert").html("请选择频道");
 			$(".alert").show();

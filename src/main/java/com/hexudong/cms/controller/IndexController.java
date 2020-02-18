@@ -68,8 +68,13 @@ public class IndexController {
 	public String hot(Model model,@PathVariable Integer pageNum) {
 		List<Channel> channelList = articleService.getChannelAll();
 		List<Slide> slideList = slideService.getAll();
-		PageInfo<Article> pageInfo = articleService.getHotList(pageNum,4);
-		List<Article> newArticleList = articleService.getNewList(6);
+		PageInfo<Article> pageInfo = articleService.getHotList(pageNum,5);//热门查询5条
+		List<Article> newArticleList = articleService.getNewList(10);//查询10条
+		for (Article article : newArticleList) {
+			System.err.println("最新图片路径为:"+article.getPicture());
+			System.out.println("最新文章标题为:"+article.getTitle());
+			System.out.println(article.getTitle()+"的栏目为"+article.getChannel_id()+"分类为"+article.getCategory_id());
+		}
 		List<Article> srticleList = articleService.getHotList(20);
 		//添加友情链接
 		List<Link> linkList = linkService.getLinkListAll();

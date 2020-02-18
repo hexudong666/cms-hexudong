@@ -25,6 +25,7 @@ KindEditor.ready(function(K) {});
 			<div class="col-2">
 				<div class="nav flex-column nav-pills" aria-orientation="vertical">
 					<a class="nav-link active" href="javascript:;" url="/article/add">发布文章</a>
+					<a class="nav-link active" href="javascript:;" url="/article/addpic">发布图片</a>
 					<a class="nav-link" href="javascript:;" url="/article/articles">我的文章</a> 
 					<a class="nav-link" href="javascript:;" url="/article/cellects">我的收藏夹</a> 
 					<a class="nav-link"	href="javascript:;" url="/user/set">个人设置</a>
