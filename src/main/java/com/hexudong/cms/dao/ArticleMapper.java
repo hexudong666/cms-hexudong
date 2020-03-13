@@ -20,5 +20,6 @@ public interface ArticleMapper extends BaseDao<Article> {
 	@Select("select * from cms_article where title=#{text}")
 	Article selectctId(String text);
 
-
+	/* 保存文章 */ 
+	int insert(Article article);
 }

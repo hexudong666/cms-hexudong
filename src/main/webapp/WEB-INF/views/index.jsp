@@ -12,7 +12,7 @@
 <body>
 	<!-- 头部导航 -->
 	<jsp:include page="./common/user/head-top.jsp"></jsp:include>
-
+	<center><input type="text" placeholder="请输入要搜索的内容"><input type="button" value="搜索"></center>
 	<div class="container-fluid" style="margin-top: 6px;">
 		<div class="row offset-1">
 			<!-- 频道 -->

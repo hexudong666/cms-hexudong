@@ -39,9 +39,9 @@
 	</delete>
 	<insert id="insert">
 		INSERT INTO cms_article(title,content,picture,channel_id,category_id,user_id,hits,hot,status,deleted,created,updated,commentCnt,tousuCnt)VALUES 
-(#{title},#{content},#{picture},#{channel_id},#{category_id},#{user_id},#{hits},#{hot},#{status},#{deleted},#{created},#{updated},#{commentCnt},#{tousuCnt})
-
+		(#{title},#{content},#{picture},#{channel_id},#{category_id},#{user_id},#{hits},#{hot},#{status},#{deleted},#{created},#{updated},#{commentCnt},#{tousuCnt})
 	</insert>
+	
 	<update id="update">
 		UPDATE cms_article
  SET title=#{title},content=#{content},picture=#{picture},channel_id=#{channel_id},category_id=#{category_id},user_id=#{user_id},hits=#{hits},hot=#{hot},status=#{status},deleted=#{deleted},created=#{created},updated=#{updated},commentCnt=#{commentCnt},tousuCnt=#{tousuCnt} 
